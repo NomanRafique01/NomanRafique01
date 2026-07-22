@@ -47,6 +47,44 @@
   <symbol id="ctrS" viewBox="0 0 12 12"><path d="M0,0 L12,0 L12,12" stroke="#0077cc" stroke-width="1.5" fill="none"/></symbol>
   <symbol id="cblS" viewBox="0 0 12 12"><path d="M0,0 L0,12 L12,12" stroke="#0077cc" stroke-width="1.5" fill="none"/></symbol>
   <symbol id="cbrS" viewBox="0 0 12 12"><path d="M12,0 L12,12 L0,12" stroke="#0077cc" stroke-width="1.5" fill="none"/></symbol>
+  <style>
+    /* scan line: translateY 36→614→36 */
+    @keyframes scan {
+      0%   { transform: translateY(36px);  opacity: 0; }
+      5%   { opacity: 1; }
+      50%  { transform: translateY(614px); opacity: 1; }
+      95%  { opacity: 1; }
+      100% { transform: translateY(36px);  opacity: 0; }
+    }
+    /* soft trail follows 1 frame behind */
+    @keyframes trail {
+      0%   { transform: translateY(36px);  opacity: 0; }
+      5%   { opacity: 0.55; }
+      50%  { transform: translateY(596px); opacity: 0.55; }
+      95%  { opacity: 0.55; }
+      100% { transform: translateY(36px);  opacity: 0; }
+    }
+    /* portrait border pulse */
+    @keyframes borderpulse {
+      0%, 100% { opacity: 0.15; }
+      50%       { opacity: 0.55; }
+    }
+    /* outer border pulse */
+    @keyframes outerpulse {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 0.8; }
+    }
+    /* cursor blink */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .scan-line  { animation: scan  4s linear infinite; }
+    .scan-trail { animation: trail 4s linear infinite; }
+    .border-glow { animation: borderpulse 3s ease-in-out infinite; }
+    .outer-border { animation: outerpulse 3s ease-in-out infinite; }
+    .cursor { animation: blink 1s step-end infinite; }
+  </style>
 </defs>
 
 <!-- BG -->
@@ -54,9 +92,7 @@
 <rect width="960" height="620" fill="url(#sl)" opacity="0.35"/>
 
 <!-- OUTER BORDER -->
-<rect x="6" y="6" width="948" height="608" rx="4" fill="none" stroke="#0055aa" stroke-width="1">
-  <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
-</rect>
+<rect class="outer-border" x="6" y="6" width="948" height="608" rx="4" fill="none" stroke="#0055aa" stroke-width="1" opacity="0.4"/>
 <rect x="8" y="8" width="944" height="604" rx="3" fill="none" stroke="#002255" stroke-width="0.5"/>
 <use href="#ctlS" x="6" y="6" width="16" height="16"/>
 <use href="#ctrS" x="938" y="6" width="16" height="16"/>
@@ -69,9 +105,7 @@
 <circle cx="36" cy="19" r="4.5" fill="#febc2e" opacity="0.8"/>
 <circle cx="50" cy="19" r="4.5" fill="#28c840" opacity="0.8"/>
 <text x="480" y="23" font-family="monospace" font-size="9" fill="#0066aa" text-anchor="middle" letter-spacing="4">NOMANRAFIQUE01  ~  /profile.md</text>
-<rect x="640" y="14" width="5" height="10" fill="#0088cc">
-  <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
-</rect>
+<rect class="cursor" x="640" y="14" width="5" height="10" fill="#0088cc"/>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- LEFT COL — PORTRAIT (x:16-260, w:244) -->
@@ -81,18 +115,12 @@
 <rect x="16" y="36" width="244" height="578" fill="url(#sl)" clip-path="url(#pc)" opacity="0.5"/>
 <rect x="16" y="36" width="244" height="578" fill="#001a3a" opacity="0.2" clip-path="url(#pc)"/>
 
-<!-- portrait scan line — top to bottom to top -->
+<!-- portrait scan line — CSS animated, top→bottom→top -->
 <g clip-path="url(#sc)">
-  <!-- soft trail -->
-  <rect x="16" y="36" width="244" height="18" fill="url(#trailG)" opacity="0">
-    <animate attributeName="y"       values="36;596;36"        dur="4s" repeatCount="indefinite" calcMode="linear"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0.7;0"  dur="4s" repeatCount="indefinite"/>
-  </rect>
+  <!-- soft glow trail -->
+  <rect class="scan-trail" x="16" y="0" width="244" height="18" fill="url(#trailG)" opacity="0"/>
   <!-- sharp scan line -->
-  <rect x="16" y="36" width="244" height="2" fill="url(#scanG)" filter="url(#scanGlow)" opacity="0">
-    <animate attributeName="y"       values="36;614;36"        dur="4s" repeatCount="indefinite" calcMode="linear"/>
-    <animate attributeName="opacity" values="0;1;1;1;0"        dur="4s" repeatCount="indefinite"/>
-  </rect>
+  <rect class="scan-line" x="16" y="0" width="244" height="2" fill="url(#scanG)" filter="url(#scanGlow)" opacity="0"/>
 </g>
 
 <!-- identity bar -->
@@ -371,8 +399,6 @@
 <text x="774" y="598" font-family="monospace" font-size="7" fill="#002244" text-anchor="middle" letter-spacing="2">© NOMAN RAFIQUE  —  ALL SYSTEMS OPERATIONAL</text>
 
 <!-- portrait pulsing border glow -->
-<rect x="16" y="36" width="244" height="578" fill="none" stroke="#0099ff" stroke-width="1.5">
-  <animate attributeName="opacity" values="0.15;0.5;0.15" dur="3s" repeatCount="indefinite"/>
-</rect>
+<rect class="border-glow" x="16" y="36" width="244" height="578" fill="none" stroke="#0099ff" stroke-width="1.5" opacity="0.15"/>
 
 </svg>
