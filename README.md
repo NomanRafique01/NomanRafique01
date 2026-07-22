@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./dark.svg" width="100%" alt="Noman Rafique — AI Engineer"/>
+<img src="./dark.svg?v=2" width="100%" alt="Noman Rafique — AI Engineer"/>
 
 </div>
 
