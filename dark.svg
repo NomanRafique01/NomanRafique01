@@ -342,10 +342,15 @@
 <text x="774" y="584" font-family="monospace" font-size="7.5" fill="#003d66" text-anchor="middle" letter-spacing="4">NYTHRIS.ME  ·  NOMANRAFIQUE01.GITHUB.IO</text>
 <text x="774" y="598" font-family="monospace" font-size="7" fill="#002244" text-anchor="middle" letter-spacing="2">© NOMAN RAFIQUE  —  ALL SYSTEMS OPERATIONAL</text>
 
-<!-- FULL WIDTH SCANNER across whole card -->
-<rect x="6" y="0" width="948" height="3" fill="url(#sg)" opacity="0">
-  <animate attributeName="y" values="36;614;36" dur="7s" repeatCount="indefinite" calcMode="ease-in-out"/>
-  <animate attributeName="opacity" values="0;0.35;0.35;0.35;0" dur="7s" repeatCount="indefinite"/>
+<!-- portrait second scan beam (offset so two beams chase each other) -->
+<rect x="16" y="0" width="244" height="2" fill="#00ccff" clip-path="url(#sc)" opacity="0.5">
+  <animateTransform attributeName="transform" type="translate" values="0,36;0,614;0,36" dur="5s" begin="1.75s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;0.6;0.6;0.6;0" dur="5s" begin="1.75s" repeatCount="indefinite"/>
+</rect>
+
+<!-- portrait pulsing border glow -->
+<rect x="16" y="36" width="244" height="578" fill="none" stroke="#0099ff" stroke-width="2">
+  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/>
 </rect>
 
 </svg>
