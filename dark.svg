@@ -15,21 +15,21 @@
     <stop offset="65%" stop-color="#0088ee" stop-opacity="0.7"/>
     <stop offset="100%" stop-color="transparent"/>
   </linearGradient>
-  <!-- portrait scan line gradient — sharp centre, fades to edges -->
+  <!-- portrait scan line gradient — pure blue, sharp centre -->
   <linearGradient id="scanG" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#00ccff" stop-opacity="0"/>
-    <stop offset="15%"  stop-color="#00ccff" stop-opacity="0.6"/>
-    <stop offset="50%"  stop-color="#00eeff" stop-opacity="1"/>
-    <stop offset="85%"  stop-color="#00ccff" stop-opacity="0.6"/>
-    <stop offset="100%" stop-color="#00ccff" stop-opacity="0"/>
+    <stop offset="0%"   stop-color="#0044ff" stop-opacity="0"/>
+    <stop offset="15%"  stop-color="#0066ff" stop-opacity="0.7"/>
+    <stop offset="50%"  stop-color="#0088ff" stop-opacity="1"/>
+    <stop offset="85%"  stop-color="#0066ff" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#0044ff" stop-opacity="0"/>
   </linearGradient>
-  <!-- glow trail below the line -->
+  <!-- glow trail — blue tint -->
   <linearGradient id="trailG" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#0088ee" stop-opacity="0"/>
-    <stop offset="20%"  stop-color="#0088ee" stop-opacity="0.18"/>
-    <stop offset="50%"  stop-color="#0099ff" stop-opacity="0.28"/>
-    <stop offset="80%"  stop-color="#0088ee" stop-opacity="0.18"/>
-    <stop offset="100%" stop-color="#0088ee" stop-opacity="0"/>
+    <stop offset="0%"   stop-color="#0033cc" stop-opacity="0"/>
+    <stop offset="20%"  stop-color="#0055ee" stop-opacity="0.18"/>
+    <stop offset="50%"  stop-color="#0066ff" stop-opacity="0.28"/>
+    <stop offset="80%"  stop-color="#0055ee" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#0033cc" stop-opacity="0"/>
   </linearGradient>
   <filter id="scanGlow" x="-10%" y="-400%" width="120%" height="900%">
     <feGaussianBlur stdDeviation="2.5" result="blur"/>
@@ -229,12 +229,14 @@
 <!-- CONTACT -->
 <rect x="268" y="543" width="318" height="1" fill="#003060" opacity="0.6"/>
 <text x="278" y="558" font-family="monospace" font-size="7" fill="#004d80" letter-spacing="3">// CONTACT</text>
-<text x="278" y="573" font-family="monospace" font-size="8" fill="#336688">GitHub</text>
-<text x="320" y="573" font-family="monospace" font-size="8" fill="#0099ff">github.com/NomanRafique01</text>
-<text x="278" y="587" font-family="monospace" font-size="8" fill="#336688">Portfolio</text>
-<text x="320" y="587" font-family="monospace" font-size="8" fill="#0099ff">NomanRafique01.github.io</text>
-<text x="278" y="601" font-family="monospace" font-size="8" fill="#336688">LinkedIn</text>
-<text x="320" y="601" font-family="monospace" font-size="8" fill="#0099ff">in/noman-rafique-5892ab398</text>
+<text x="278" y="571" font-family="monospace" font-size="8" fill="#336688">GitHub</text>
+<text x="314" y="571" font-family="monospace" font-size="8" fill="#0099ff">github.com/NomanRafique01</text>
+<text x="278" y="583" font-family="monospace" font-size="8" fill="#336688">Email</text>
+<text x="314" y="583" font-family="monospace" font-size="7.5" fill="#0099ff">nomanrafique.official01@gmail.com</text>
+<text x="278" y="595" font-family="monospace" font-size="8" fill="#336688">LinkedIn</text>
+<text x="314" y="595" font-family="monospace" font-size="7.5" fill="#0099ff">linkedin.com/in/noman-rafique-5892ab398</text>
+<text x="278" y="607" font-family="monospace" font-size="8" fill="#336688">X</text>
+<text x="314" y="607" font-family="monospace" font-size="8" fill="#0099ff">x.com/NomanRafique06</text>
 
 <!-- ══════════════════════════════════════════ -->
 <!-- RIGHT COL — SKILLS + STATUS (x:594-952)  -->
