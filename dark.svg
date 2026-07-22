@@ -15,6 +15,26 @@
     <stop offset="65%" stop-color="#0088ee" stop-opacity="0.7"/>
     <stop offset="100%" stop-color="transparent"/>
   </linearGradient>
+  <!-- portrait scan line gradient — sharp centre, fades to edges -->
+  <linearGradient id="scanG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#00ccff" stop-opacity="0"/>
+    <stop offset="15%"  stop-color="#00ccff" stop-opacity="0.6"/>
+    <stop offset="50%"  stop-color="#00eeff" stop-opacity="1"/>
+    <stop offset="85%"  stop-color="#00ccff" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#00ccff" stop-opacity="0"/>
+  </linearGradient>
+  <!-- glow trail below the line -->
+  <linearGradient id="trailG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#0088ee" stop-opacity="0"/>
+    <stop offset="20%"  stop-color="#0088ee" stop-opacity="0.18"/>
+    <stop offset="50%"  stop-color="#0099ff" stop-opacity="0.28"/>
+    <stop offset="80%"  stop-color="#0088ee" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#0088ee" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="scanGlow" x="-10%" y="-400%" width="120%" height="900%">
+    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0%" stop-color="#002255"/>
     <stop offset="100%" stop-color="#0099ff"/>
@@ -61,11 +81,19 @@
 <rect x="16" y="36" width="244" height="578" fill="url(#sl)" clip-path="url(#pc)" opacity="0.5"/>
 <rect x="16" y="36" width="244" height="578" fill="#001a3a" opacity="0.2" clip-path="url(#pc)"/>
 
-<!-- portrait scanner beam -->
-<rect x="16" y="0" width="244" height="5" fill="url(#sg)" clip-path="url(#sc)" filter="url(#gb)" opacity="0.85">
-  <animateTransform attributeName="transform" type="translate" values="0,36;0,614;0,36" dur="3.5s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0;1;1;1;0" dur="3.5s" repeatCount="indefinite"/>
-</rect>
+<!-- portrait scan line — top to bottom to top -->
+<g clip-path="url(#sc)">
+  <!-- soft trail -->
+  <rect x="16" y="36" width="244" height="18" fill="url(#trailG)" opacity="0">
+    <animate attributeName="y"       values="36;596;36"        dur="4s" repeatCount="indefinite" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0.7;0.7;0.7;0"  dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <!-- sharp scan line -->
+  <rect x="16" y="36" width="244" height="2" fill="url(#scanG)" filter="url(#scanGlow)" opacity="0">
+    <animate attributeName="y"       values="36;614;36"        dur="4s" repeatCount="indefinite" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;1;1;1;0"        dur="4s" repeatCount="indefinite"/>
+  </rect>
+</g>
 
 <!-- identity bar -->
 <rect x="16" y="582" width="244" height="32" fill="#001228" opacity="0.97"/>
@@ -342,15 +370,9 @@
 <text x="774" y="584" font-family="monospace" font-size="7.5" fill="#003d66" text-anchor="middle" letter-spacing="4">NYTHRIS.ME  ·  NOMANRAFIQUE01.GITHUB.IO</text>
 <text x="774" y="598" font-family="monospace" font-size="7" fill="#002244" text-anchor="middle" letter-spacing="2">© NOMAN RAFIQUE  —  ALL SYSTEMS OPERATIONAL</text>
 
-<!-- portrait second scan beam (offset so two beams chase each other) -->
-<rect x="16" y="0" width="244" height="2" fill="#00ccff" clip-path="url(#sc)" opacity="0.5">
-  <animateTransform attributeName="transform" type="translate" values="0,36;0,614;0,36" dur="5s" begin="1.75s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0;0.6;0.6;0.6;0" dur="5s" begin="1.75s" repeatCount="indefinite"/>
-</rect>
-
 <!-- portrait pulsing border glow -->
-<rect x="16" y="36" width="244" height="578" fill="none" stroke="#0099ff" stroke-width="2">
-  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/>
+<rect x="16" y="36" width="244" height="578" fill="none" stroke="#0099ff" stroke-width="1.5">
+  <animate attributeName="opacity" values="0.15;0.5;0.15" dur="3s" repeatCount="indefinite"/>
 </rect>
 
 </svg>
